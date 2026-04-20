@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Generate Token
-        uses: tibdex/github-app-token@v1
+        uses: tibdex/github-app-token@v2
         id: generate-token
         with:
           app_id: "${{ secrets.BOT_APP_ID }}"
@@ -32,7 +32,7 @@ jobs:
           labels: |
             link-checker
       - name: Update Issue
-        uses: peter-evans/create-issue-from-file@v4
+        uses: peter-evans/create-issue-from-file@v5
         with:
           title: Broken links detected in docs 🔗
           issue-number: "${{ steps.link-checker-issue.outputs.issue-number }}"
