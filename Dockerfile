@@ -1,4 +1,4 @@
-FROM docker.io/node:16.20-alpine AS build-frontend
+FROM docker.io/node:22-alpine AS build-frontend
 
 WORKDIR /build
 
@@ -6,7 +6,7 @@ COPY . .
 
 WORKDIR /build/frontend
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 RUN npm run build
 
